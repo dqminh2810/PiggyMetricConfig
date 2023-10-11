@@ -31,7 +31,7 @@ spring:
             client-id: ${OAUTH2_NOTIFICATION_CLIENT_ID:notification-client}
             client-name: ${OAUTH2_NOTIFICATION_CLIENT_NAME:notification-client-oauth2-client-credentials}
             client-secret: ${OAUTH2_NOTIFICATION_CLIENT_SECRET:secret-notification}
-            client-authorization-method: ${OAUTH2_NOTIFICATION_CLIENT_AUTHENTICATION_METHOD:lient_secret_basic}
+            client-authorization-method: ${OAUTH2_NOTIFICATION_CLIENT_AUTHENTICATION_METHOD:client_secret_basic}
             authorization-grant-type: ${OAUTH2_NOTIFICATION_CLIENT_AUTHORIZATION_GRANT_TYPE:client_credentials}
             scope: ${OAUTH2_NOTIFICATION_CLIENT_SCOPES:openid, profile, notification.read, notification.write}
         provider:
