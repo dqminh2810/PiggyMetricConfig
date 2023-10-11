@@ -4,13 +4,13 @@ server:
 spring:
   application:
     name: ${SPRING_APPLICATION_NAME:statistic-service}
-  data:
-    mongodb:
-      host: ${MONGO_DB_HOST:statistic-mongodb}
-      port: ${MONGO_DB_PORT:27017}
-      username: ${MONGO_DB_USERNAME:user}
-      password: ${MONGO_DB_PASSWORD:password}
-      database: ${MONGO_DB:piggymetrics}
+#  data:
+#    mongodb:
+#      host: ${MONGO_DB_HOST:statistic-mongodb}
+#      port: ${MONGO_DB_PORT:27017}
+#      username: ${MONGO_DB_USERNAME:user}
+#      password: ${MONGO_DB_PASSWORD:password}
+#      database: ${MONGO_DB:piggymetrics}
 
 eureka:
   client:
