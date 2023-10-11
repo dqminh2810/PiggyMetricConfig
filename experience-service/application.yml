@@ -36,17 +36,22 @@ spring:
             scope: ${OAUTH2_NOTIFICATION_CLIENT_SCOPES:openid, profile, notification.read, notification.write}
         provider:
           spring:
-            issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://auth-service:9000}
+            issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:https://auth-service-piggy-metric-dqminh2810.cloud.okteto.net}
+#            issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://auth-service:9000}
       resourceserver:
         jwt:
-          issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://auth-service:9000}
+          issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:https://auth-service-piggy-metric-dqminh2810.cloud.okteto.net}
+#          issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://auth-service:9000}
 
 gateway:
-  base-uri: ${GATEWAY_URI:http://gateway:8000}
+  base-uri: ${GATEWAY_URI:https://gateway-piggy-metric-dqminh2810.cloud.okteto.net}
+#  base-uri: ${GATEWAY_URI:http://gateway:8000}
 account:
-  base-uri: ${ACCOUNTS_URI:http://account-service:8081}
+  base-uri: ${ACCOUNTS_URI:https://account-service-piggy-metric-dqminh2810.cloud.okteto.net}
+#  base-uri: ${ACCOUNTS_URI:http://account-service:8081}
 notification:
-  base-uri: ${NOTIFICATION_URI:http://notification-service:8082}
+  base-uri: ${NOTIFICATION_URI:https://notification-service-piggy-metric-dqminh2810.cloud.okteto.net}
+#  base-uri: ${NOTIFICATION_URI:http://notification-service:8082}
 
 feign:
   client:
@@ -57,4 +62,5 @@ feign:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${REGISTRY_URI:http://registry:8761}/eureka/
+      defaultZone: ${REGISTRY_URI:https://registry-piggy-metric-dqminh2810.cloud.okteto.net}/eureka/
+#      defaultZone: ${REGISTRY_URI:http://registry:8761}/eureka/
