@@ -1,5 +1,5 @@
 server:
-  port: ${SPRING_APPLICATION_PORT}
+  port: ${SPRING_APPLICATION_PORT:8761}
 
 logging:
   level:
@@ -10,7 +10,7 @@ logging:
         security: INFO
 spring:
   application:
-    name: ${SPRING_APPLICATION_NAME}
+    name: ${SPRING_APPLICATION_NAME:registry}
 
 eureka:
   client:

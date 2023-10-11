@@ -1,5 +1,5 @@
 server:
-  port: ${SPRING_APPLICATION_PORT}
+  port: ${SPRING_APPLICATION_PORT:8082}
 
 logging:
   level:
@@ -10,19 +10,19 @@ logging:
 
 spring:
   application:
-    name: ${SPRING_APPLICATION_NAME}
+    name: ${SPRING_APPLICATION_NAME:notification-service}
   data:
     mongodb:
-      host: ${MONGO_DB_HOST}
-      port: ${MONGO_DB_PORT}
-      username: ${MONGO_DB_USERNAME}
-      password: ${MONGO_DB_PASSWORD}
-      database: ${MONGO_DB}
+      host: ${MONGO_DB_HOST:notification-mongodb}
+      port: ${MONGO_DB_PORT:27017}
+      username: ${MONGO_DB_USERNAME:user}
+      password: ${MONGO_DB_PASSWORD:password}
+      database: ${MONGO_DB:piggymetrics}
   security:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI}
+          issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://auth-service:9000}
 #      client:
 #        registration:
 #          account-client-oauth2-client-credentials:
@@ -48,7 +48,7 @@ spring:
 #            token-uri: http://localhost:9000/oauth2/token
 #            authorization-uri: http://localhost:9000/oauth2/authorize
 account:
-  base-uri: ${ACCOUNT_URI}
+  base-uri: ${ACCOUNT_URI:http://account-service:8081}
 
 feign:
   client:
@@ -59,4 +59,4 @@ feign:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${REGISTRY_URI}/eureka/
+      defaultZone: ${REGISTRY_URI:http://registry:8761}/eureka/

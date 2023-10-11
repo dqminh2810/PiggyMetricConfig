@@ -1,5 +1,5 @@
 server:
-  port: ${SPRING_APPLICATION_PORT}
+  port: ${SPRING_APPLICATION_PORT:8000}
 
 logging:
   level:
@@ -12,14 +12,14 @@ logging:
 
 spring:
   application:
-    name: ${SPRING_APPLICATION_NAME}
+    name: ${SPRING_APPLICATION_NAME:gateway}
   cloud:
     gateway:
       default-filters:
         - TokenRelay=
       routes:
         - id: route-experience
-          uri: ${EXPERIENCE_URI}/
+          uri: ${EXPERIENCE_URI:http://experience-service:8080}/
           predicates:
             - Path=/**
   security:
@@ -28,19 +28,19 @@ spring:
         registration:
           experience-client-oauth2-authorization-code:
             provider: spring
-            client-name: ${OAUTH2_EXPERIENCE_CLIENT_NAME}
-            client-id: ${OAUTH2_EXPERIENCE_CLIENT_ID}
-            client-secret: ${OAUTH2_EXPERIENCE_CLIENT_SECRET}
+            client-id: ${OAUTH2_EXPERIENCE_CLIENT_ID:experience-client}
+            client-name: ${OAUTH2_EXPERIENCE_CLIENT_NAME:experience-client-oauth2-authorization-code}
+            client-secret: ${OAUTH2_EXPERIENCE_CLIENT_SECRET:secret-experience}
             #            client-authorization-method: ${OAUTH2_EXPERIENCE_CLIENT_AUTHENTICATION_METHOD}
-            authorization-grant-type: ${OAUTH2_EXPERIENCE_CLIENT_AUTHORIZATION_GRANT_TYPE}
-            redirect-uri: ${OAUTH2_EXPERIENCE_CLIENT_REDIRECT_URI}
-            scope: ${OAUTH2_EXPERIENCE_CLIENT_SCOPES}
+            authorization-grant-type: ${OAUTH2_EXPERIENCE_CLIENT_AUTHORIZATION_GRANT_TYPE:authorization_code}
+            redirect-uri: ${OAUTH2_EXPERIENCE_CLIENT_REDIRECT_URI:{baseScheme}://{baseHost}{basePort}{basePath}/login/oauth2/code/{registrationId}}
+            scope: ${OAUTH2_EXPERIENCE_CLIENT_SCOPES:openid, profile, experience.read, experience.write}
         provider:
           spring:
-            issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI}
+            issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://auth-service:9000}
 
 experience:
-  base-uri: ${EXPERIENCE_URI}
+  base-uri: ${EXPERIENCE_URI:http://experience-service:8080}
 
 feign:
   client:
@@ -51,4 +51,4 @@ feign:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${REGISTRY_URI}/eureka/
+      defaultZone: ${REGISTRY_URI:http://registry:8761}/eureka/
