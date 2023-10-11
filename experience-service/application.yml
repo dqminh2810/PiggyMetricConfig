@@ -20,7 +20,7 @@ spring:
         registration:
           account-client-oauth2-client-credentials:
             provider: spring
-            client-id: ${OAUTH2_ACCOUNT_CLIENT_ID}
+            client-id: ${OAUTH2_ACCOUNT_CLIENT_ID:account-client}
             client-name: ${OAUTH2_ACCOUNT_CLIENT_NAME:account-client-oauth2-client-credentials}
             client-secret: ${OAUTH2_ACCOUNT_CLIENT_SECRET:secret-account}
             client-authorization-method: ${OAUTH2_ACCOUNT_CLIENT_AUTHENTICATION_METHOD:client_secret_basic}
