@@ -15,5 +15,5 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${REGISTRY_URI:https://registry-piggy-metric-dqminh2810.cloud.okteto.net}/eureka/
+      defaultZone: ${REGISTRY_URI:https://registry-piggy-metric-dev-dqminh2810.cloud.okteto.net}/eureka/
 #      defaultZone: ${REGISTRY_URI:http://registry:8761}/eureka/

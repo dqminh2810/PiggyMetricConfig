@@ -14,12 +14,12 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:https://auth-service-piggy-metric-dqminh2810.cloud.okteto.net}
+          issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:https://auth-service-piggy-metric-dev-dqminh2810.cloud.okteto.net}
 #          issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://auth-service:9000}
       client:
         provider:
           spring:
-            issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:https://auth-service-piggy-metric-dqminh2810.cloud.okteto.net}
+            issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:https://auth-service-piggy-metric-dev-dqminh2810.cloud.okteto.net}
 #            issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://auth-service:9000}
 #      client:
 #        registration:
@@ -49,7 +49,7 @@ logging:
     org.springframework.security.oauth2: TRACE
 
 notification:
-  base-uri: ${NOTIFICATION_URI:https://notification-service-piggy-metric-dqminh2810.cloud.okteto.net}
+  base-uri: ${NOTIFICATION_URI:https://notification-service-piggy-metric-dev-dqminh2810.cloud.okteto.net}
 #  base-uri: ${NOTIFICATION_URI:http://notification-service:8082}
 
 feign:
@@ -61,5 +61,5 @@ feign:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${REGISTRY_URI:https://registry-piggy-metric-dqminh2810.cloud.okteto.net}/eureka/
+      defaultZone: ${REGISTRY_URI:https://registry-piggy-metric-dev-dqminh2810.cloud.okteto.net}/eureka/
 #      defaultZone: ${REGISTRY_URI:http://registry:8761}/eureka/
