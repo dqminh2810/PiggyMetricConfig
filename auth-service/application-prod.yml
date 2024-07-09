@@ -1,4 +1,3 @@
-
 server:
   port: ${SPRING_APPLICATION_PORT:9000}
 
@@ -14,13 +13,13 @@ logging:
 spring:
   application:
     name: ${SPRING_APPLICATION_NAME:auth-service}
-  #  data:
-  #    mongodb:
-  #      host: ${MONGO_DB_HOST:auth-mongodb}
-  #      port: ${MONGO_DB_PORT:27017}
-  #      username: ${MONGO_DB_USERNAME:user}
-  #      password: ${MONGO_DB_PASSWORD:password}
-  #      database: ${MONGO_DB:piggymetrics}
+#  data:
+#    mongodb:
+#      host: ${MONGO_DB_HOST:auth-mongodb}
+#      port: ${MONGO_DB_PORT:27017}
+#      username: ${MONGO_DB_USERNAME:user}
+#      password: ${MONGO_DB_PASSWORD:password}
+#      database: ${MONGO_DB:piggymetrics}
   security:
     oauth2:
       authorizationserver:
@@ -45,10 +44,12 @@ spring:
               client-secret: ${OAUTH2_EXPERIENCE_CLIENT_SECRET:{noop}secret-experience}
               client-authentication-methods: ${OAUTH2_EXPERIENCE_CLIENT_AUTHENTICATION_METHODS:client_secret_basic}
               authorization-grant-types: ${OAUTH2_EXPERIENCE_CLIENT_AUTHORIZATION_GRANT_TYPES:authorization_code, client_credentials}
-              redirect-uris: ${OAUTH2_EXPERIENCE_CLIENT_REDIRECT_URIS:http://gateway:8000/login/oauth2/code/experience-client-oauth2-authorization-code}
+              redirect-uris: ${OAUTH2_EXPERIENCE_CLIENT_REDIRECT_URIS:https://gateway-piggy-metric-dev-dqminh2810.cloud.okteto.net/login/oauth2/code/experience-client-oauth2-authorization-code}
+#              redirect-uris: ${OAUTH2_EXPERIENCE_CLIENT_REDIRECT_URIS:http://gateway:8000/login/oauth2/code/experience-client-oauth2-authorization-code}
               scopes: ${OAUTH2_EXPERIENCE_CLIENT_SCOPES:openid, profile, experience.read, experience.write}
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${REGISTRY_URI:http://registry:8761}/eureka/
+      defaultZone: ${REGISTRY_URI:https://registry-piggy-metric-dev-dqminh2810.cloud.okteto.net}/eureka/
+#      defaultZone: ${REGISTRY_URI:http://registry:8761}/eureka/
