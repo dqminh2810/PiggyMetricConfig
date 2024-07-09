@@ -1,0 +1,60 @@
+server:
+  port: ${SPRING_APPLICATION_PORT:8080}
+#  servlet.context-path: /api
+
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        web: INFO
+        security: INFO
+        security.oauth2: TRACE
+
+spring:
+  application:
+    name: ${SPRING_APPLICATION_NAME:experience-service}
+  security:
+    oauth2:
+      client:
+        registration:
+          account-client-oauth2-client-credentials:
+            provider: spring
+            client-id: ${OAUTH2_ACCOUNT_CLIENT_ID:account-client}
+            client-name: ${OAUTH2_ACCOUNT_CLIENT_NAME:account-client-oauth2-client-credentials}
+            client-secret: ${OAUTH2_ACCOUNT_CLIENT_SECRET:secret-account}
+            client-authorization-method: ${OAUTH2_ACCOUNT_CLIENT_AUTHENTICATION_METHOD:client_secret_basic}
+            authorization-grant-type: ${OAUTH2_ACCOUNT_CLIENT_AUTHORIZATION_GRANT_TYPE:client_credentials}
+            scope: ${OAUTH2_ACCOUNT_CLIENT_SCOPES:openid, profile, account.read, account.write}
+          notification-client-oauth2-client-credentials:
+            provider: spring
+            client-id: ${OAUTH2_NOTIFICATION_CLIENT_ID:notification-client}
+            client-name: ${OAUTH2_NOTIFICATION_CLIENT_NAME:notification-client-oauth2-client-credentials}
+            client-secret: ${OAUTH2_NOTIFICATION_CLIENT_SECRET:secret-notification}
+            client-authorization-method: ${OAUTH2_NOTIFICATION_CLIENT_AUTHENTICATION_METHOD:client_secret_basic}
+            authorization-grant-type: ${OAUTH2_NOTIFICATION_CLIENT_AUTHORIZATION_GRANT_TYPE:client_credentials}
+            scope: ${OAUTH2_NOTIFICATION_CLIENT_SCOPES:openid, profile, notification.read, notification.write}
+        provider:
+          spring:
+            issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://auth-service:9000}
+      resourceserver:
+        jwt:
+          issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://auth-service:9000}
+
+gateway:
+  base-uri: ${GATEWAY_URI:http://gateway:8000}
+account:
+  base-uri: ${ACCOUNTS_URI:http://account-service:8081}
+notification:
+  base-uri: ${NOTIFICATION_URI:http://notification-service:8082}
+
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: full
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${REGISTRY_URI:http://registry:8761}/eureka/
