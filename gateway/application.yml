@@ -21,7 +21,15 @@ spring:
         - id: route-experience
           uri: ${EXPERIENCE_URI:http://experience-service:8080}/
           predicates:
-            - Path=/**
+            - Path=/experience/**
+        - id: route-account
+          uri: ${ACCOUNT_URI:http://account-service:8081}/
+          predicates:
+            - Path=/account/**
+        - id: route-notification
+          uri: ${NOTIFICATION_URI:http://notification-service:8082}/
+          predicates:
+            - Path=/notification/**
   security:
     oauth2:
       client:
