@@ -34,15 +34,15 @@ spring:
     oauth2:
       client:
         registration:
-          experience-client-oauth2-authorization-code:
+          gateway-client-oauth2-authorization-code:
             provider: spring
-            client-id: ${OAUTH2_EXPERIENCE_CLIENT_ID:experience-client}
-            client-name: ${OAUTH2_EXPERIENCE_CLIENT_NAME:experience-client-oauth2-authorization-code}
-            client-secret: ${OAUTH2_EXPERIENCE_CLIENT_SECRET:secret-experience}
+            client-id: ${OAUTH2_GATEWAY_CLIENT_ID:gateway-client}
+            client-name: ${OAUTH2_GATEWAY_CLIENT_NAME:gateway-client-oauth2-authorization-code}
+            client-secret: ${OAUTH2_GATEWAY_CLIENT_SECRET:secret-gateway}
             #            client-authorization-method: ${OAUTH2_EXPERIENCE_CLIENT_AUTHENTICATION_METHOD}
-            authorization-grant-type: ${OAUTH2_EXPERIENCE_CLIENT_AUTHORIZATION_GRANT_TYPE:authorization_code}
-            redirect-uri: ${OAUTH2_EXPERIENCE_CLIENT_REDIRECT_URI:{baseScheme}://{baseHost}{basePort}{basePath}/login/oauth2/code/{registrationId}}
-            scope: ${OAUTH2_EXPERIENCE_CLIENT_SCOPES:openid, profile, experience.read, experience.write}
+            authorization-grant-type: ${OAUTH2_GATEWAY_CLIENT_AUTHORIZATION_GRANT_TYPE:authorization_code}
+            redirect-uri: ${OAUTH2_GATEWAY_CLIENT_REDIRECT_URI:{baseScheme}://{baseHost}{basePort}{basePath}/login/oauth2/code/{registrationId}}
+            scopes: ${OAUTH2_GATEWAY_CLIENT_SCOPES:openid, profile, account.read, account.write, experience.read, experience.write, notification.read, notification.write}
         provider:
           spring:
             issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://auth-service:9000}

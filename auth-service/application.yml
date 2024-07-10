@@ -47,6 +47,14 @@ spring:
               authorization-grant-types: ${OAUTH2_EXPERIENCE_CLIENT_AUTHORIZATION_GRANT_TYPES:authorization_code, client_credentials}
               redirect-uris: ${OAUTH2_EXPERIENCE_CLIENT_REDIRECT_URIS:http://gateway:8000/login/oauth2/code/experience-client-oauth2-authorization-code}
               scopes: ${OAUTH2_EXPERIENCE_CLIENT_SCOPES:openid, profile, experience.read, experience.write}
+          gateway-client-oauth2:
+            registration:
+              client-id: ${OAUTH2_GATEWAY_CLIENT_ID:gateway-client}
+              client-secret: ${OAUTH2_GATEWAY_CLIENT_SECRET:{noop}secret-gateway}
+              client-authentication-methods: ${OAUTH2_GATEWAY_CLIENT_AUTHENTICATION_METHODS:client_secret_basic}
+              authorization-grant-types: ${OAUTH2_GATEWAY_CLIENT_AUTHORIZATION_GRANT_TYPES:authorization_code, client_credentials}
+              redirect-uris: ${OAUTH2_GATEWAY_CLIENT_REDIRECT_URIS:http://gateway:8000/login/oauth2/code/experience-client-oauth2-authorization-code}
+              scopes: ${OAUTH2_GATEWAY_CLIENT_SCOPES:openid, profile, account.read, account.write, experience.read, experience.write, notification.read, notification.write}
 
 eureka:
   client:
