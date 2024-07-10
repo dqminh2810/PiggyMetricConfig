@@ -19,17 +19,10 @@ spring:
         - TokenRelay=
       routes:
         - id: route-experience
-          uri: ${EXPERIENCE_URI:http://experience-service:8080}/
+          uri: ${EXPERIENCE_URI:https://experience-service-piggy-metric-dev-dqminh2810.cloud.okteto.net}/
+          #          uri: ${EXPERIENCE_URI:http://experience-service:8080}/
           predicates:
-            - Path=/experience/**
-        - id: route-account
-          uri: ${ACCOUNT_URI:http://account-service:8081}/
-          predicates:
-            - Path=/account/**
-        - id: route-notification
-          uri: ${NOTIFICATION_URI:http://notification-service:8082}/
-          predicates:
-            - Path=/notification/**
+            - Path=/**
   security:
     oauth2:
       client:
