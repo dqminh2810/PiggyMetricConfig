@@ -34,21 +34,23 @@ spring:
     oauth2:
       client:
         registration:
-          gateway-client-oauth2-authorization-code:
+          experience-client-oauth2-authorization-code:
             provider: spring
-            client-id: ${OAUTH2_GATEWAY_CLIENT_ID:gateway-client}
-            client-name: ${OAUTH2_GATEWAY_CLIENT_NAME:gateway-client-oauth2-authorization-code}
-            client-secret: ${OAUTH2_GATEWAY_CLIENT_SECRET:secret-gateway}
+            client-id: ${OAUTH2_EXPERIENCE_CLIENT_ID:experience-client}
+            client-name: ${OAUTH2_EXPERIENCE_CLIENT_NAME:experience-client-oauth2-authorization-code}
+            client-secret: ${OAUTH2_EXPERIENCE_CLIENT_SECRET:secret-experience}
             #            client-authorization-method: ${OAUTH2_EXPERIENCE_CLIENT_AUTHENTICATION_METHOD}
-            authorization-grant-type: ${OAUTH2_GATEWAY_CLIENT_AUTHORIZATION_GRANT_TYPE:authorization_code}
-            redirect-uri: ${OAUTH2_GATEWAY_CLIENT_REDIRECT_URI:{baseScheme}://{baseHost}{basePort}{basePath}/login/oauth2/code/{registrationId}}
-            scopes: ${OAUTH2_GATEWAY_CLIENT_SCOPES:openid, profile, account.read, account.write, experience.read, experience.write, notification.read, notification.write}
+            authorization-grant-type: ${OAUTH2_EXPERIENCE_CLIENT_AUTHORIZATION_GRANT_TYPE:authorization_code}
+            redirect-uri: ${OAUTH2_EXPERIENCE_CLIENT_REDIRECT_URI:{baseScheme}://{baseHost}{basePort}{basePath}/login/oauth2/code/{registrationId}}
+            scope: ${OAUTH2_EXPERIENCE_CLIENT_SCOPES:openid, profile, experience.read, experience.write}
         provider:
           spring:
-            issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://auth-service:9000}
+            issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:https://auth-service-piggy-metric-dev-dqminh2810.cloud.okteto.net}
+#            issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://auth-service:9000}
 
 experience:
-  base-uri: ${EXPERIENCE_URI:http://experience-service:8080}
+  base-uri: ${EXPERIENCE_URI:https://experience-service-piggy-metric-dev-dqminh2810.cloud.okteto.net}
+#  base-uri: ${EXPERIENCE_URI:http://experience-service:8080}
 
 feign:
   client:
@@ -59,4 +61,5 @@ feign:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${REGISTRY_URI:http://registry:8761}/eureka/
+      defaultZone: ${REGISTRY_URI:https://registry-piggy-metric-dev-dqminh2810.cloud.okteto.net}/eureka/
+#      defaultZone: ${REGISTRY_URI:http://registry:8761}/eureka/
