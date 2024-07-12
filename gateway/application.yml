@@ -7,10 +7,16 @@ logging:
     org:
       springframework:
         web:
+          HttpLogging: TRACE
           filter:
             CommonsRequestLoggingFilter: DEBUG
         security: DEBUG
         security.oauth2: TRACE
+    reactor:
+      netty:
+        http:
+          server: DEBUG
+          client: DEBUG
 
 spring:
   application:
