@@ -32,10 +32,10 @@ spring:
             client-id: ${OAUTH2_EXPERIENCE_CLIENT_ID:experience-client}
             client-name: ${OAUTH2_EXPERIENCE_CLIENT_NAME:experience-client-oauth2-authorization-code}
             client-secret: ${OAUTH2_EXPERIENCE_CLIENT_SECRET:secret-experience}
-            #            client-authorization-method: ${OAUTH2_EXPERIENCE_CLIENT_AUTHENTICATION_METHOD}
+#            client-authorization-method: ${OAUTH2_EXPERIENCE_CLIENT_AUTHENTICATION_METHOD}
             authorization-grant-type: ${OAUTH2_EXPERIENCE_CLIENT_AUTHORIZATION_GRANT_TYPE:authorization_code}
-#            redirect-uri: ${OAUTH2_EXPERIENCE_CLIENT_REDIRECT_URI:{baseScheme}://{baseHost}{basePort}{basePath}/login/oauth2/code/{registrationId}}
-            redirect-uri: ${OAUTH2_EXPERIENCE_CLIENT_REDIRECT_URI:http://experience:8080/login/oauth2/code/experience-client-oauth2-authorization-code}
+            redirect-uri: ${OAUTH2_EXPERIENCE_CLIENT_REDIRECT_URI:{baseScheme}://{baseHost}{basePort}{basePath}/login/oauth2/code/{registrationId}}
+#            redirect-uri: ${OAUTH2_EXPERIENCE_CLIENT_REDIRECT_URI:http://experience:8080/login/oauth2/code/experience-client-oauth2-authorization-code}
             scope: ${OAUTH2_EXPERIENCE_CLIENT_SCOPES:openid, profile, experience.read, experience.write}
         provider:
           spring:
