@@ -6,7 +6,9 @@ logging:
     root: INFO
     org:
       springframework:
-        web: DEBUG
+        web:
+          filter:
+            CommonsRequestLoggingFilter: DEBUG
         security: DEBUG
         security.oauth2: TRACE
 
