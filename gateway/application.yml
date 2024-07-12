@@ -17,6 +17,10 @@ spring:
     name: ${SPRING_APPLICATION_NAME:gateway}
   cloud:
     gateway:
+      httpserver:
+        wiretap: true
+      httpclient:
+        wiretap: true
       default-filters:
         - TokenRelay=
       routes:
