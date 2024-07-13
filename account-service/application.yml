@@ -5,6 +5,8 @@ logging:
   level:
     root: INFO
     org:
+      apache:
+        http: DEBUG
       springframework:
         web: DEBUG
         security: DEBUG

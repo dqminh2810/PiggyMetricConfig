@@ -6,6 +6,8 @@ logging:
   level:
     root: INFO
     org:
+      apache:
+        http: DEBUG
       springframework:
         web:
           filter:
