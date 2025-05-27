@@ -32,7 +32,7 @@ spring:
       routes:
         - id: route-experience
           #uri: ${EXPERIENCE_URI:https://experience-service-piggy-metric-dev-dqminh2810.cloud.okteto.net}/
-          uri: ${EXPERIENCE_URI:http://experience-service:8080}/
+          uri: ${EXPERIENCE_URI:localhost:8080}/
           predicates:
             - Path=/**
   security:
@@ -51,7 +51,7 @@ spring:
             scope: ${OAUTH2_EXPERIENCE_CLIENT_SCOPES:openid, profile, experience.read, experience.write}
         provider:
           spring:
-            issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://auth-service:9000}
+            issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:localhost:9000}
 
 #experience:
 #  base-uri: ${EXPERIENCE_URI:https://experience-service-piggy-metric-dev-dqminh2810.cloud.okteto.net}
@@ -67,4 +67,4 @@ eureka:
   client:
     serviceUrl:
       #defaultZone: ${REGISTRY_URI:https://registry-piggy-metric-dev-dqminh2810.cloud.okteto.net}/eureka/
-      defaultZone: ${REGISTRY_URI:http://registry:8761}/eureka/
+      defaultZone: ${REGISTRY_URI:localhost:8761}/eureka/

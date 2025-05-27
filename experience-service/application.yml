@@ -40,17 +40,17 @@ spring:
             scope: ${OAUTH2_NOTIFICATION_CLIENT_SCOPES:openid, profile, notification.read, notification.write}
         provider:
           spring:
-            issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://auth-service:9000}
+            issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:localhost:9000}
       resourceserver:
         jwt:
-          issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://auth-service:9000}
+          issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:localhost:9000}
 
 gateway:
-  base-uri: ${GATEWAY_URI:http://gateway:8000}
+  base-uri: ${GATEWAY_URI:localhost:8000}
 account:
-  base-uri: ${ACCOUNTS_URI:http://account-service:8081}
+  base-uri: ${ACCOUNTS_URI:localhost:8081}
 notification:
-  base-uri: ${NOTIFICATION_URI:http://notification-service:8082}
+  base-uri: ${NOTIFICATION_URI:localhost:8082}
 
 feign:
   client:
@@ -61,4 +61,4 @@ feign:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${REGISTRY_URI:http://registry:8761}/eureka/
+      defaultZone: ${REGISTRY_URI:localhost:8761}/eureka/
