@@ -68,4 +68,4 @@ feign:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${REGISTRY_URI:localhost:8761}/eureka/
+      defaultZone: ${REGISTRY_URI:http://localhost:8761}/eureka/
