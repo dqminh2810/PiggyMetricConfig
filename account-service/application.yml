@@ -65,7 +65,7 @@ feign:
       default:
         loggerLevel: full
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${REGISTRY_URI:http://localhost:8761}/eureka/
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: ${REGISTRY_URI:http://localhost:8761}/eureka/
