@@ -31,11 +31,11 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://localhost:9000}
+          issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://auth-service:9000}
       client:
         provider:
           spring:
-            issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://localhost:9000}
+            issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://auth-service:9000}
 #      client:
 #        registration:
 #          notification-client-oauth2-client-credentials:
@@ -57,7 +57,7 @@ spring:
 #            scope: ${OAUTH2_NOTIFICATION_CLIENT_SCOPES}
 
 notification:
-  base-uri: ${NOTIFICATION_URI:http://localhost:8082}
+  base-uri: ${NOTIFICATION_URI:http://notification-service:8082}
 
 feign:
   client:
@@ -68,4 +68,4 @@ feign:
 #eureka:
 #  client:
 #    serviceUrl:
-#      defaultZone: ${REGISTRY_URI:http://localhost:8761}/eureka/
+#      defaultZone: ${REGISTRY_URI:http://registry:8761}/eureka/

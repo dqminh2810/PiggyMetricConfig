@@ -22,7 +22,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://localhost:9000}
+          issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://auth-service:9000}
 #      client:
 #        registration:
 #          account-client-oauth2-client-credentials:
@@ -48,7 +48,7 @@ spring:
 #            token-uri: http://localhost:9000/oauth2/token
 #            authorization-uri: http://localhost:9000/oauth2/authorize
 account:
-  base-uri: ${ACCOUNT_URI:http://localhost:8081}
+  base-uri: ${ACCOUNT_URI:http://account-service:8081}
 
 feign:
   client:
@@ -59,4 +59,4 @@ feign:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${REGISTRY_URI:http://localhost:8761}/eureka/
+      defaultZone: ${REGISTRY_URI:http://registry:8761}/eureka/
