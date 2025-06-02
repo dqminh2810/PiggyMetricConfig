@@ -56,7 +56,13 @@ feign:
       default:
         loggerLevel: full
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: ${REGISTRY_URI:http://registry:8761}/eureka/
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: ${REGISTRY_URI:http://registry:8761}/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus

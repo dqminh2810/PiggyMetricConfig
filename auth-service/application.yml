@@ -53,3 +53,9 @@ spring:
 #  client:
 #    serviceUrl:
 #      defaultZone: ${REGISTRY_URI:http://registry:8761}/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus

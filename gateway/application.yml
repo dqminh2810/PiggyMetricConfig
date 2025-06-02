@@ -70,3 +70,9 @@ feign:
 #    serviceUrl:
 #      #defaultZone: ${REGISTRY_URI:https://registry-piggy-metric-dev-dqminh2810.cloud.okteto.net}/eureka/
 #      defaultZone: ${REGISTRY_URI:http://localhost:8761}/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
