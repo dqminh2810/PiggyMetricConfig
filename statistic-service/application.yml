@@ -11,6 +11,11 @@ spring:
       username: ${MONGO_DB_USERNAME:user}
       password: ${MONGO_DB_PASSWORD:password}
       database: ${MONGO_DB:piggymetrics}
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://auth-service:9000}
 
 #eureka:
 #  client:
