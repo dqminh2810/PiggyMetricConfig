@@ -4,8 +4,15 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://localhost:9000}
+      client:
+        provider:
+          spring:
+            issuer-uri: ${OAUTH2_PROVIDER_ISSUER_URI:http://localhost:9000}
+
 account:
   base-uri: ${ACCOUNT_URI:http://localhost:8081}
+statistic:
+  base-uri: ${ACCOUNT_URI:http://localhost:8083}
 
 #eureka:
 #  client:

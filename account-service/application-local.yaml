@@ -11,6 +11,8 @@ spring:
 
 notification:
   base-uri: ${NOTIFICATION_URI:http://localhost:8082}
+statistic:
+  base-uri: ${ACCOUNT_URI:http://localhost:8083}
 
 #eureka:
 #  client:
